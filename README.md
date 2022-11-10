@@ -3,9 +3,4 @@ All Data Science II data
  This is a line vom R Studio
  
  
- 
- 
- bla bla bla
- 
- 
- Ist da jemand?
+## Is this working?
