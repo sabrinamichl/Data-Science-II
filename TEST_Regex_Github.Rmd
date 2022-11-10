@@ -1,0 +1,44 @@
+```{r}
+library(tidyverse)
+library(tidytext)
+library(tokenizers)
+```
+
+
+```{r}
+sample_vector <- c("Ich hab 2011 meine Website https://www.blogblog.de online gestellt!",
+                   "Am 11.11.2011 war dann endlich online.") 
+sample_tibble <- tibble(text = sample_vector)
+```
+
+
+```{r}
+d <- sample_tibble %>% 
+  unnest_tokens(output = token, input = text)
+```
+
+```{r}
+d %>% 
+  filter(str_detect(token, "[0-9]"))
+```
+
+```{r}
+d_na <- d %>% 
+  mutate(token = str_replace_na(token, "[0-9{4}]")) %>% 
+  drop_na()
+```
+
+```{r}
+d_all <- d %>% 
+  mutate(token = str_replace_all(token, "[:digit:]", replacement = NA_character_)) %>% 
+  drop_na()
+```
+
+```{r}
+#d_all1 <-
+  d %>% 
+  mutate(token = str_replace_all(token, "^[https?]$", replacement = NA_character_)) %>%
+  drop_na()
+```
+
+
