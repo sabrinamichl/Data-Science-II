@@ -1,5 +1,22 @@
 ---
-title: "Untitled"
+title: "Hallo, ich bin ein Quarto-Blog"
 format: html
 editor: visual
 ---
+
+```{r}
+1+1
+```
+
+# Datensatz & Paket laden
+
+```{r}
+library(tidyverse)
+data(mtcars)
+```
+
+## Datensatz analysieren
+
+```{r}
+show(mtcars)
+```
